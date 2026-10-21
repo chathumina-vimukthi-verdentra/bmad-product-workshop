@@ -49,6 +49,6 @@ Read `TRACK.md` for the demo script.
 
 ## Run
 
-There is nothing to build or install here. `apps/` is the Carbon Lite starter that the developer workshop uses, kept so the planning skills can see the real web shell.
+There is nothing to build or install here, and there is no code in this repository. The system spine describes the Carbon Lite code layout. The code lives in the developer workshop.
 
 Back to the [repository README](../README.md).

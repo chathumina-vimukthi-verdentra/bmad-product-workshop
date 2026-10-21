@@ -288,7 +288,7 @@ git add -A . && git commit -m "docs: FAC initiative, epic and tickets"
 - PRD: `status: final`, FAC.FR-1 to FAC.FR-3 with acceptance notes, the 400 for an invalid scope and the 404 for an unknown id, the six seed factors as given, and CLT.NFR and AD ids cited rather than restated.
 - UX: `DESIGN.md` and `EXPERIENCE.md` have `status: final`. `DESIGN.md` holds the colour, type and component tokens for all three screens. `EXPERIENCE.md` holds the three-tab navigation with the Factor library under Factors, the states and the key flow. Both cite the Figma link and frame ids. `imports/figma/` holds a PNG per frame.
 - Tickets: the initiative is filled in with dated decisions. Its `tickets.toml` has one epic. `epic-browse-factors/` has the epic with criteria (a) to (g) and a `tickets.toml` with two entries, 1 before 2. The `next` command shows 1.1 ready to start.
-- Nothing outside `_bmad-output/initiative-fac-factor-library/` changed, and nothing in `apps/`.
+- Nothing outside `_bmad-output/initiative-fac-factor-library/` changed.
 
 ## What you will see
 

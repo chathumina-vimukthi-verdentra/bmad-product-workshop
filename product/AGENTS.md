@@ -29,6 +29,7 @@ recreate them here. Do not read `../reference`: it is the finished result, not a
 ## Run
 
 - Stack, for context only: Node.js 24 LTS, TypeScript, Fastify 5 API in `apps/api`, React 19 and Vite web
-  app in `apps/web`. The architecture rules are AD-1 to AD-10 in the system spine.
+  app in `apps/web`. That code is in the developer workshop, not in this repository. The architecture rules
+  are AD-1 to AD-10 in the system spine.
 - There is nothing to install here. Do not run `npm install` in this folder.
 - Never push. Commits stay local.
