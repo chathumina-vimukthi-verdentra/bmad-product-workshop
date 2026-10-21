@@ -4,14 +4,14 @@ Workshop sample values, not real emission factors.
 
 ## What we are trying to do
 
-We plan the first capability, FAC Factor library, from an empty initiative to the point where development can start. BMad is already installed and set up in this folder, and the active initiative is `initiative-fac-factor-library`. It is empty: the master PRD and the system spine are the only planning documents. You run three commands in order. `/bmad-prd` turns a short brief into the capability PRD. `/bmad-ux` reads the design from Figma and writes how the product looks (`DESIGN.md`) and how the screen behaves (`EXPERIENCE.md`). `/bmad-ticket` turns both into an initiative, an epic and the tickets that development builds from. The plan ends at ticket 1.1, which is where the developer track starts.
+We plan the first capability, FAC Factor library, from an empty initiative to the point where development can start. BMad is already installed and set up in this folder, and the active initiative is `initiative-fac-factor-library`. It is empty: the master PRD and the system spine are the only planning documents. You run three commands in order. `/bmad-prd` turns a short brief into the capability PRD. `/bmad-ux` reads the design screenshot you are given and writes how the product looks (`DESIGN.md`) and how the screen behaves (`EXPERIENCE.md`). `/bmad-ticket` turns both into an initiative, an epic and the tickets that development builds from. The plan ends at ticket 1.1, which is where the developer track starts.
 
 ## Who decides
 
 You do. The skills read what already exists, ask about the rest, and record each decision. The human decision points are:
 
 - PRD: the stakes and the working mode, how invalid input is handled, and each assumption the draft makes.
-- UX: which Figma frames are in scope, the navigation, the states the design does not show, and the shared design that later screens inherit.
+- UX: what the design screenshot shows and what it leaves out, the navigation, the states the design does not show, and the shared design that later screens inherit.
 - Tickets: how the work is split into epics and tickets, the first ticket to build, and its acceptance criteria.
 
 ## Time box
@@ -28,7 +28,7 @@ You do. The skills read what already exists, ask about the rest, and record each
 
 Open this `product` folder itself in VS Code (File > Open Folder), not the repository root. Use GitHub Copilot Chat in Agent mode. Setup was done once for the whole workshop (see the README at the repository root). The working tree must be clean. Your own commits use your own git name and email.
 
-Connect Figma once. This folder's `.vscode/mcp.json` adds the Figma MCP server. In VS Code open the Command Palette, choose **MCP: List Servers**, then **figma**, then **Start Server**, and sign in to Figma in the browser. Your Figma account needs view access to the workshop Figma file. Keep the file's link to hand for step 6.
+The design for step 6 is a screenshot, `inputs/design/factor-library.png`. Open it before you start. No account or connection is needed.
 
 Check the starting point:
 
@@ -136,29 +136,28 @@ git add -A . && git commit -m "docs: FAC capability PRD"
 /bmad-ux
 ```
 
-It lists the planning documents it found. Reply with the brief and your Figma link:
+It lists the planning documents it found. Reply with the brief and the design screenshot:
 
 ```text
 UX for the Factor library, from the FAC PRD. Use ux-fac-factor-library as the folder. The master PRD and the system spine also apply.
-The design is in Figma: <Figma link>
-01 Home is the app shell; 02 Factor library sits inside it under Factors.
+The design is the screenshot inputs/design/factor-library.png. It shows the Factor library screen inside the app shell.
 This DESIGN.md becomes the shared design the Activity entry and Footprint summary screens will inherit.
 ```
 
-It reads the Figma file through the Figma MCP server and lists the frames. Choose:
+It looks at the screenshot and describes what it sees. Choose:
 
 ```text
-Both frames.
+Use it as the visual reference for the Factor library screen.
 ```
 
-For each frame it reads the layout, the text and the styles, and saves a PNG snapshot to `ux-fac-factor-library/imports/figma/` with a README that records the link and the frame ids. The snapshot is what development receives if they have no Figma access. When it asks whether there is anything else, and then notes that the file has no Figma variables:
+It keeps the screenshot in `ux-fac-factor-library/imports/` and writes down what it sees. When it asks whether there is anything else:
 
 ```text
 No, that is everything.
 ```
 
 ```text
-No Figma variables is fine: take the colours, font and radius from the frames.
+There are no design tokens: take the colours, font and radius from the screenshot.
 ```
 
 ### 7. UX: stakes and working mode
@@ -173,12 +172,12 @@ Fast path
 
 ### 8. UX: settle what the design does not show
 
-A design file shows the screens, not every rule behind them. Expect two sets of questions.
+A screenshot shows the screen, not every rule behind it. Expect two sets of questions.
 
-First, every place the design disagrees with the app or the PRD. The main one is navigation: Figma draws one tab, Factors, while the web app already has three. Keep all three: Figma draws only Factors because it is the only screen planned so far. Answer the set with:
+First, anything the screenshot shows that the PRD or the spine does not cover. The main one is navigation: the screenshot shows three tabs, Factors, Activities and Footprint, but only Factors is planned so far. Keep all three. Answer the set with:
 
 ```text
-Keep all three tabs, Factors, Activities and Footprint, inside the navy header as in Figma. Keep the factor id on one line; below 720px the table scrolls sideways in its card. No Source column: the source shows when you open one factor. The organisation name and avatar are static text, with no sign-in. The amber notice on the page is the required one, and the footer line stays. The v before the version is display only.
+Keep all three tabs, Factors, Activities and Footprint, inside the navy header as in the screenshot. Keep the factor id on one line; below 720px the table scrolls sideways in its card. No Source column: the source shows when you open one factor. The organisation name and avatar are static text, with no sign-in. The amber notice on the page is the required one, and the footer line stays. The v before the version is display only.
 ```
 
 Second, what the design does not show: the states, the components the later screens need, and how the page behaves. Answer with:
@@ -206,7 +205,7 @@ Accept the assumptions.
 When it asks which screens need a visual reference:
 
 ```text
-The Figma frames are the visual reference. Do not render HTML mockups for them. Every other state is spine only.
+The screenshot is the visual reference. Do not render HTML mockups for it. Every other state is spine only.
 ```
 
 ### 10. UX: check the result
@@ -215,7 +214,7 @@ The Figma frames are the visual reference. Do not render HTML mockups for them. 
 ls -R _bmad-output/initiative-fac-factor-library/ux-fac-factor-library
 ```
 
-Open `imports/figma/README.md` and check that both frames are listed with their PNGs.
+Open the `imports/` folder and check that the screenshot is there, and that `EXPERIENCE.md` refers to it.
 
 ```bash
 git add -A . && git commit -m "docs: FAC UX"
@@ -229,7 +228,7 @@ git add -A . && git commit -m "docs: FAC UX"
 
 ```text
 Plan the FAC initiative for development: the initiative, its epics, and the first epic's tickets.
-Title: "Priya can see the versioned emission factors every figure is built on". One epic, epic-browse-factors, for FAC.FR-1 to FAC.FR-3. No platform epic: the starter is in apps/. The workshop builds only ticket 1.1. No tracker: the repository is the store.
+Title: "Priya can see the versioned emission factors every figure is built on". One epic, epic-browse-factors, for FAC.FR-1 to FAC.FR-3. No platform epic: the starter code already exists in the developer workshop. The workshop builds only ticket 1.1. No tracker: the repository is the store.
 ```
 
 It reads the PRD, the UX, the spine and the codebase, and tells you what it found. When it asks what is wrong or missing:
@@ -286,7 +285,7 @@ git add -A . && git commit -m "docs: FAC initiative, epic and tickets"
 ## What to check
 
 - PRD: `status: final`, FAC.FR-1 to FAC.FR-3 with acceptance notes, the 400 for an invalid scope and the 404 for an unknown id, the six seed factors as given, and CLT.NFR and AD ids cited rather than restated.
-- UX: `DESIGN.md` and `EXPERIENCE.md` have `status: final`. `DESIGN.md` holds the colour, type and component tokens for all three screens. `EXPERIENCE.md` holds the three-tab navigation with the Factor library under Factors, the states and the key flow. Both cite the Figma link and frame ids. `imports/figma/` holds a PNG per frame.
+- UX: `DESIGN.md` and `EXPERIENCE.md` have `status: final`. `DESIGN.md` holds the colour, type and component tokens for all three screens. `EXPERIENCE.md` holds the three-tab navigation with the Factor library under Factors, the states and the key flow. Both cite the design screenshot. `imports/` holds a copy of it.
 - Tickets: the initiative is filled in with dated decisions. Its `tickets.toml` has one epic. `epic-browse-factors/` has the epic with criteria (a) to (g) and a `tickets.toml` with two entries, 1 before 2. The `next` command shows 1.1 ready to start.
 - Nothing outside `_bmad-output/initiative-fac-factor-library/` changed.
 
@@ -295,7 +294,7 @@ git add -A . && git commit -m "docs: FAC initiative, epic and tickets"
 Files created or changed, all under `_bmad-output/initiative-fac-factor-library/`:
 
 - `prd-fac-factor-library/`: the capability PRD and its decision log (`.memlog.md`), and a `reconcile-*.md` file per input if the skill checked your inputs in parallel.
-- `ux-fac-factor-library/`: `DESIGN.md`, `EXPERIENCE.md`, an index file naming both, the decision log, and `imports/figma/` with the PNG snapshots and their README.
+- `ux-fac-factor-library/`: `DESIGN.md`, `EXPERIENCE.md`, an index file naming both, the decision log, and `imports/` with the design screenshot.
 - `initiative-fac-factor-library.md`: filled in. `tickets.toml`: the epics in build order.
 - `epic-browse-factors/`: the epic and its `tickets.toml`, with tickets 1.1 and 1.2.
 

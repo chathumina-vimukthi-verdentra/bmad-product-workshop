@@ -11,7 +11,7 @@ You run them in order, in the `product` folder. The master PRD and the system sp
 | Step | Command | What it makes | Estimate |
 |---|---|---|---|
 | 1 | `/bmad-prd` | The capability PRD for the Factor library | 25 min |
-| 2 | `/bmad-ux` | `DESIGN.md` and `EXPERIENCE.md`, read live from Figma | 25 min |
+| 2 | `/bmad-ux` | `DESIGN.md` and `EXPERIENCE.md`, from a design screenshot | 25 min |
 | 3 | `/bmad-ticket` | The initiative, one epic, and tickets 1.1 and 1.2 | 20 min |
 | | Orientation and hand-over | | 10 min |
 
@@ -40,15 +40,13 @@ Who decides: you do. The skills read what exists, ask about the rest and record 
 
 ## Before the session (once)
 
-You need git, uv, VS Code with GitHub Copilot Chat and Copilot access, and a Figma account with view access to the workshop Figma file. Nothing needs installing in the project: there is no npm step in this repository.
+You need git, uv, VS Code with GitHub Copilot Chat and Copilot access. Nothing needs installing in the project: there is no npm step in this repository.
 
 ```bash
 ./scripts/setup.sh
 ```
 
 On Windows use `scripts\setup.cmd`, or run the script in Git Bash or WSL. It ends with `Ready. Open the product folder in VS Code.`
-
-Then connect Figma once: in VS Code run **MCP: List Servers**, choose **figma**, choose **Start Server**, and sign in to Figma in the browser. The server entry is already in `product/.vscode/mcp.json`. The details are in `product/TRACK.md`.
 
 ## How this connects to the developer workshop
 

@@ -48,13 +48,6 @@ fi
 SKILLS="$(ls "$PRODUCT/.agents/skills" | wc -l | tr -d ' ')"
 echo "  $SKILLS BMad skill folders found in product/.agents/skills"
 
-if grep -q '"figma"' "$PRODUCT/.vscode/mcp.json" 2>/dev/null; then
-  echo "  Figma MCP server is listed in product/.vscode/mcp.json"
-else
-  echo "  Stop: the Figma server is missing from product/.vscode/mcp.json."
-  exit 1
-fi
-
 ACTIVE="$(cd "$PRODUCT" && uv run --no-cache _bmad/scripts/resolve_config.py --project-root . --key core.active_initiative 2>/dev/null | tr -d '"[:space:]{}' | sed 's/^core\.active_initiative://')"
 if [ -z "$ACTIVE" ]; then
   echo "  Stop: BMad could not read its configuration. Re-run this script. If it still fails, tell the presenter."
@@ -64,4 +57,3 @@ echo "  Active initiative: $ACTIVE"
 
 echo
 echo "Ready. Open the product folder in VS Code."
-echo "Next, once: in VS Code run MCP: List Servers, choose figma, Start Server, and sign in to Figma."

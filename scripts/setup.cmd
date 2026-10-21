@@ -50,12 +50,6 @@ if not exist "product\_bmad" (
   echo   Stop: product\_bmad is missing. Clone the repository again.
   exit /b 1
 )
-findstr /c:"figma" "product\.vscode\mcp.json" >nul 2>&1
-if errorlevel 1 (
-  echo   Stop: the Figma server is missing from product\.vscode\mcp.json.
-  exit /b 1
-)
-echo   Skills and the Figma server entry found
 pushd product
 uv run --no-cache _bmad/scripts/resolve_config.py --project-root . --key core.active_initiative
 if errorlevel 1 (
@@ -66,5 +60,4 @@ if errorlevel 1 (
 popd
 echo.
 echo Ready. Open the product folder in VS Code.
-echo Next, once: in VS Code run MCP: List Servers, choose figma, Start Server, and sign in to Figma.
 endlocal

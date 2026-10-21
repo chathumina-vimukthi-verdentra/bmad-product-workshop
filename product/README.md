@@ -20,11 +20,11 @@ _bmad-output/initiative-fac-factor-library/
   prd-fac-factor-library/             /bmad-prd
     prd-fac-factor-library.md
     .memlog.md
-  ux-fac-factor-library/              /bmad-ux, read live from the Figma link you give it
+  ux-fac-factor-library/              /bmad-ux, read from the design screenshot you give it
     ux-fac-factor-library.md
     DESIGN.md                         the shared design every screen inherits
     EXPERIENCE.md
-    imports/figma/                    a PNG per Figma frame and a README with the link and node ids
+    imports/                          the design screenshot, kept as an input
     .memlog.md
   tickets.toml                        /bmad-ticket: the epics, in build order
   epic-browse-factors/                /bmad-ticket

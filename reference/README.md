@@ -14,4 +14,4 @@ Rules:
 
 - Never open this folder as your VS Code workspace.
 - Do not ask the assistant to read it while it plans. It would copy the answers instead of asking you. The `product` folder's `AGENTS.md` already tells it to leave this folder alone.
-- The UX here comes from HTML mock-ups. In the session your UX comes from the Figma frames, so your `ux-fac-factor-library` folder will have an `imports/figma/` folder instead of `mockups/`.
+- The UX here comes from HTML mock-ups. In the session your UX comes from the design screenshot in `product/inputs/design/`, so your `ux-fac-factor-library` folder will have an `imports/` folder instead of `mockups/`.
